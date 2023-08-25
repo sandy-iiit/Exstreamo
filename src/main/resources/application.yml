@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dattasandeep000:13072003@sandy.p06ijgx.mongodb.net/?retryWrites=true&w=majority
+      database: Extreamo
