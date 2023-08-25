@@ -1,0 +1,27 @@
+
+<mat-toolbar color="warn" class="custom">
+  <mat-toolbar-row>
+<img style="width: 300px;height: 150px;" src="../../assets/logo.jpeg">
+    <span class="example-spacer"></span>
+<!--    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">-->
+<!--      <mat-icon>menu</mat-icon>-->
+<!--    </button>-->
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>video_call</mat-icon>
+    </button>
+    <button *ngIf="isAuthenticated;else noAuth" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <ng-template #noAuth>
+      <button (click)="login()" mat-stroked-button>
+        Login
+      </button>
+    </ng-template>
+  </mat-toolbar-row>
+
+<!--  <mat-toolbar-row>-->
+<!--    <span></span>-->
+<!--  </mat-toolbar-row>-->
+</mat-toolbar>

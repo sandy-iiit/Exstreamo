@@ -1,0 +1,44 @@
+<app-header/>
+
+<div fxLayout="row">
+  <div fxFlex="20%">
+    <mat-sidenav [mode]="'side'" opened>
+      <mat-nav-list role="list">
+        <mat-list-item role="listitem">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon style="color: white; margin-right: 8px;">home</mat-icon>
+            <p matLine style="color: white; margin: 0;">Home</p>
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon style="color: white; margin-right: 8px;">history</mat-icon>
+            <p matLine style="color: white; margin: 0;">History</p>
+          </div>
+        </mat-list-item> <mat-list-item role="listitem">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon style="color: white; margin-right: 8px;">thumb_up</mat-icon>
+            <p matLine style="color: white; margin: 0;">Liked Videos</p>
+          </div>
+        </mat-list-item> <mat-list-item role="listitem">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon style="color: white; margin-right: 8px;">subscriptions</mat-icon>
+            <p matLine style="color: white; margin: 0;">Subscriptions</p>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="80%">
+    <mat-card>
+      <mat-card-content>Simple card</mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+
+<router-outlet/>
+

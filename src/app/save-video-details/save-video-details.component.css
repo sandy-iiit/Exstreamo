@@ -1,0 +1,50 @@
+.hgt{
+  height:20px !important;
+}
+.mat-title{
+  padding: 20px;
+}
+
+.custom-file {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #438fab;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-file-label:hover {
+  background-color: #306381;
+}
+.custom-button {
+  background-color: #438fab;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.custom-button:hover {
+  background-color: #306381;
+}
+
+

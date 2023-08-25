@@ -1,0 +1,85 @@
+
+<div fxLayout>
+
+  <div fxFlex="25%">
+      Hi
+  </div>
+  <div fxFlex="25%">
+<div class="mat-title">
+  Add video metadata
+</div>
+    <form [formGroup]="savedVideoDetails">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input [formControl]="title" class="hgt" matInput required>
+    </mat-form-field>
+      <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input [formControl]="description" class="hgt" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Video Status</mat-label>
+      <mat-select [formControl]="videoStatus" class="hgt">
+        <mat-option class="hgt" value="PUBLIC">PUBLIC</mat-option>
+        <mat-option class="hgt" value="PRIVATE">PRIVATE</mat-option>
+      </mat-select>
+    </mat-form-field>
+      <mat-form-field class="example-chip-list">
+        <mat-label> Tags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+          <mat-chip-row style="background-color: #7cafc2;color: #ffffff;"  *ngFor="let tag of tags"
+                        (removed)="remove(tag)"
+                        [editable]="true"
+                        (edited)="edit(tag, $event)"
+                        [aria-description]="'press enter to edit ' + tag">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input placeholder="Add tags..."
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+
+      <div>
+        <label for="inputGroupFile01" class="custom-file-label">
+          Upload thumbnail
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                   aria-describedby="inputGroupFileAddon01" (change)="onFileUpload($event)">
+          </div>
+        </label>
+
+        <br>
+          <div  *ngIf="fileSelected">
+            <div>
+              <p>{{selectedFileName}}</p>
+            </div>
+            <hr>
+            <div>
+              <button class="custom-button" (click)="onUpload()">Upload</button>
+            </div>
+          </div>
+
+          <br>
+
+      </div>
+
+
+
+      <div>
+        <button class="custom-button" type="submit" (click)="saveVideo()">Submit</button>
+      </div>
+
+    </form>
+  </div>
+  <div fxFlex="45%">
+<app-video-player [videoUrl]="videoUrl"/>
+  </div>
+
+
+</div>
