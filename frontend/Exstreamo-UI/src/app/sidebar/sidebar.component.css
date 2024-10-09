@@ -1,0 +1,12 @@
+.mat-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.list-icon {
+  margin-right: 10px;
+}
+
+.list-text {
+  font-size: 16px;
+}

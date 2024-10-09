@@ -1,0 +1,53 @@
+<div style="margin: 20px; text-align: center;display: flex;justify-content: space-evenly;">
+
+  <form [formGroup]="saveVideoDetailsForm" style="width:40%;padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9;">
+    <h2>Add Video Metadata</h2>
+
+    <div style="margin-bottom: 15px;">
+      <label for="title">Title:</label>
+      <input id="title" type="text" formControlName="title" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="description">Description:</label>
+      <input id="description" type="text" formControlName="description" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="videoStatus">Video Status:</label>
+      <select id="videoStatus" formControlName="videoStatus" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <option value="PUBLIC">PUBLIC</option>
+        <option value="PRIVATE">PRIVATE</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Tags:</label>
+      <div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
+        <div *ngFor="let tag of tags" style="background: #e0e0e0; border-radius: 15px; padding: 5px 10px; margin: 5px;">
+          {{ tag }}
+          <button type="button" (click)="remove(tag)" style="border: none; background: none; cursor: pointer;">&#10005;</button>
+        </div>
+      </div>
+      <input
+        #tagInput
+        placeholder="Add tag..."
+        (keydown.enter)="add(tagInput.value); tagInput.value=''"
+        style="padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: calc(100% - 12px);">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="thumbnail">Upload Thumbnail:</label>
+      <input type="file" id="thumbnail" (change)="onFileSelected($event)" style="display: block; margin: 10px 0;">
+      <div *ngIf="fileSelected">
+        <p>Selected File: {{selectedFileName}}</p>
+        <button type="button" (click)="onUpload()" style="padding: 5px 10px; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer;">Upload</button>
+      </div>
+    </div>
+
+    <button type="button" (click)="saveVideo()" style="padding: 10px 20px; border: none; background: #28a745; color: white; border-radius: 4px; cursor: pointer;">Save</button>
+  </form>
+  <div style="width:40%">
+    <app-video-player [videoUrl]="videoUrl"></app-video-player>
+  </div>
+</div>
